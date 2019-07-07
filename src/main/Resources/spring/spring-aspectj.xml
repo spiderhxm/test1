@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+    <bean id="myAspect" class="com.hxm.demo.test1.aop.aspectj.xml.MyAspect"></bean>
+
+    <bean id="userDao" class="com.hxm.demo.test1.aop.cglibproxy.UserDao"></bean>
+
+    <aop:config>
+        <aop:aspect ref="myAspect"> <!--绑定切面类-->
+            <!--匹配proxy目录下的所有类的方法作为切入点-->
+            <aop:pointcut expression="execution(* com.hxm.demo.test1.aop.cglibproxy.*.*(..))" id="myPointCut"/>
+            <!--绑定切面类中的通知和切入点-->
+            <aop:around method="aroundAdvice" pointcut-ref="myPointCut"></aop:around>
+        </aop:aspect>
+    </aop:config>
+</beans>
