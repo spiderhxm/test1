@@ -15,7 +15,7 @@ public class ThreadTask implements Runnable{
 
 
     public void run() {
-        for(int i=0;i<this.cnt-1;i++){
+        for(int i=0;i<this.cnt;i++){
             System.out.println(taskNo+"--"+i);
             try {
                 Thread.sleep((int)(Math.random()*1000));
