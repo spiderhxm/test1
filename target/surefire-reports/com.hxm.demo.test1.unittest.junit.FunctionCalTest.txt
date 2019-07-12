@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: com.hxm.demo.test1.unittest.junit.FunctionCalTest
--------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.437 sec - in com.hxm.demo.test1.unittest.junit.FunctionCalTest
