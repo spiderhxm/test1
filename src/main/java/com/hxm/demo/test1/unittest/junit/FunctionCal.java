@@ -17,4 +17,16 @@ public class FunctionCal {
 
         return result;
     }
+
+    public int cal1(String oper, int a, int b){
+        int result;
+        if(oper.equals("add")){
+            result = a+b;
+        }else{
+            result = 0;
+        }
+        System.out.println("cal--result="+result);
+        return result;
+    }
+
 }

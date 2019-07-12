@@ -2,6 +2,7 @@ package com.hxm.demo.test1.aop.javaagent;
 
 import javassist.*;
 
+import java.io.IOException;
 import java.lang.instrument.ClassFileTransformer;
 import java.lang.instrument.IllegalClassFormatException;
 import java.security.ProtectionDomain;
@@ -14,8 +15,9 @@ public class MyClassFileTransformer implements ClassFileTransformer {
     final static HashMap<String, List<String>> methodMap = new HashMap<String, List<String>>();
 
     public MyClassFileTransformer(){
-        addMethod("com.hxm.demo.test1.aop.javaagent.Business.say");
-        addMethod("com.hxm.demo.test1.aop.javaagent.Business.tel");
+        addMethod("com.hxm.demo.test1.aop.Business.say");
+        addMethod("com.hxm.demo.test1.aop.Business.tel");
+        System.out.println("intialized methodmap");
     }
 
     private void addMethod(String fullMethodName){
@@ -25,13 +27,13 @@ public class MyClassFileTransformer implements ClassFileTransformer {
         List<String> methodList = methodMap.get(className);
         if (methodList==null){
             methodList = new ArrayList<String>();
-            methodMap.put(methodName,methodList);
+            methodMap.put(className,methodList);
         }
         methodList.add(methodName);
     }
 
     public byte[] transform(ClassLoader loader, String className, Class<?> classBeingRedefined, ProtectionDomain protectionDomain, byte[] classfileBuffer) throws IllegalClassFormatException {
-        className.replace("/",".");
+        className=className.replace("/",".");
         if(!methodMap.containsKey(className)){
             return null;
         }
@@ -52,9 +54,13 @@ public class MyClassFileTransformer implements ClassFileTransformer {
                 }
             }
 
+            return ctClass.toBytecode();
+
         } catch (NotFoundException e) {
             e.printStackTrace();
         } catch (CannotCompileException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
             e.printStackTrace();
         }
 
