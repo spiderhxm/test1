@@ -1,5 +1,6 @@
-package com.hxm.demo.test1.log;
+package com.hxm.demo.test1.log.slf4j;
 
+import com.hxm.demo.test1.log.Enum1;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,14 +12,16 @@ import java.util.List;
  * Hello world!
  *
  */
-@Slf4j
+//通过注解可以自动加入log
+//@Slf4j
 public class App
 {
+    //SLF4J的目的是为了替代Jakarta Commons-Logging, 也是一种日志门面（Facade）
     private static final Logger logger           = LoggerFactory.getLogger(App.class);
     public static void main( String[] args )
     {
         logger.info("hello");
-        log.info("hello");
+//        log.info("hello");
 
         String[] sa = {"a","bs"};
         

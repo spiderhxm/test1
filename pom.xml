@@ -88,9 +88,42 @@
             <version>3.25.0-GA</version>
         </dependency>
 
-        <!--activiti 工作流-->
+
+        <!--log-->
+<!--        <dependency>
+            <groupId>commons-logging</groupId>
+            <artifactId>commons-logging</artifactId>
+            <version>1.1.3</version>
+        </dependency>-->
 
         <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.7.5</version>
+        </dependency>
+
+        <!-- 将现有的commons logging的调用转换成lsf4j的调用。 -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>jcl-over-slf4j</artifactId>
+            <version>1.7.5</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-core</artifactId>
+            <version>1.2.3</version>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>1.2.3</version>
+        </dependency>
+
+        <!--activiti 工作流-->
+
+<!--        <dependency>
             <groupId>org.activiti</groupId>
             <artifactId>activiti-spring</artifactId>
             <version>5.22.0</version>
@@ -121,7 +154,7 @@
                     <artifactId>spring-tx</artifactId>
                 </exclusion>
             </exclusions>
-        </dependency>
+        </dependency>-->
 
 
     </dependencies>
