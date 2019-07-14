@@ -24,7 +24,9 @@ public class AppSpring {
             ApplicationContext applicationContext = new ClassPathXmlApplicationContext("classpath:spring/spring-mybatis.xml");
 
             UserService userService = (UserService) applicationContext.getBean("userService");
+            userService.updateAddr("jack","香港");
             userService.printUserAddr("jack");
+            userService.printAddrByGender("male");
 
 
 
