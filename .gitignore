@@ -1,8 +1,8 @@
 *.iml
 *.ipr
 *.iws
-.idea/
-.idea/**
+#.idea/
+#.idea/**
 api/bin/
 biz/bin/
 dal/bin/
