@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd
        http://www.springframework.org/schema/context
-       http://www.springframework.org/schema/context/spring-context.xsd"
+       http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd"
        default-autowire="byName">
 
 
@@ -74,8 +74,15 @@
         <property name="sqlSessionFactoryBeanName" value="localSqlSessionFactory"/>
     </bean>
 
+    <!-- ======= 事务定义开始 ======= -->
+    <!-- Ibatis事务管理器 -->
+    <bean id="myTransactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="localDataSource"/>
+    </bean>
 
 
+    <!-- 声明使用注解式事务 -->
+    <tx:annotation-driven transaction-manager="myTransactionManager" />
 
     <bean id="userService" class="com.hxm.demo.test1.persistence.mybatis.Service.UserService">
 
