@@ -6,6 +6,7 @@
         <result property="id" column="id"/>
         <result property="name" column="name"/>
         <result property="address" column="addr"/>
+        <result property="gender" column="gender"/>
     </resultMap>
     <!--resultType="map" : 将查询结果映射到一个HashMap上-->
     <!--resultType=UserDo : 将查询结果映射到一个领域模型上，例如一个javabean上-->

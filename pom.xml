@@ -123,7 +123,7 @@
 
         <!--activiti 工作流-->
 
-<!--        <dependency>
+        <dependency>
             <groupId>org.activiti</groupId>
             <artifactId>activiti-spring</artifactId>
             <version>5.22.0</version>
@@ -154,7 +154,7 @@
                     <artifactId>spring-tx</artifactId>
                 </exclusion>
             </exclusions>
-        </dependency>-->
+        </dependency>
 
 
     </dependencies>

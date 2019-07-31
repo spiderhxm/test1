@@ -29,11 +29,8 @@ public class AppSpring {
             userService.printAddrByGender("male");
 
 
-        try {
+
             userService.testTranMgnt("sichuan77");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
 
 
     }

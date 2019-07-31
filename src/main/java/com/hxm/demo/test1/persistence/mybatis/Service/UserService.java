@@ -43,14 +43,18 @@ public class UserService {
     //使用@Transaction 时默认为RuntimeException（也就是运行时异常）异常才会回滚
     //解决方法。这样添加事务@Transactional(rollbackFor = Exception.class) 不管检查异常还是非检查异常都会回滚
     @Transactional(rollbackFor = Exception.class)
-    public void testTranMgnt(String addr) throws Exception {
+    public void testTranMgnt(String addr)  {
         UserDo userDo = new UserDo();
         userDo.setName("shawn");
         userDo.setAddress(addr);
         userDao.updateAddr(userDo);
 
-        throw new Exception("---检查异常-----");
-        //throw new RuntimeException("---运行时异常-----");
+        try {
+            throw new Exception("---检查异常-----");
+            //throw new RuntimeException("---运行时异常-----");
+        }catch (Exception e){
+            e.printStackTrace();
+        }
 
         //int i = 1/0;
 

@@ -15,9 +15,9 @@
 
         </environment>
     </environments>
-<!--    <typeAliases>
-        <typeAlias type="com.hxm.demo.test1.persistence.mybatis.object.UserDo" alias="UserDo" />
-    </typeAliases>-->
+<!--    <typeAliases>-->
+<!--        <typeAlias type="com.hxm.demo.test1.persistence.mybatis.object.UserDo" alias="UserDo" />-->
+<!--    </typeAliases>-->
 
     <mappers>
         <!-- 使用相对于类路径的资源引用 -->
